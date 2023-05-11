@@ -1,5 +1,5 @@
 pragma solidity 0.5.1;
-
+//payee->person who is getting paid
 contract escrow{
     address agent;
     mapping(address => uint256) public deposits;
@@ -11,7 +11,9 @@ contract escrow{
        constructor() public{
            agent=msg.sender;
        }
+       //selling the property
        function deposit(address payee) public onlyagent payable{
+       //value sent
            uint256 amount=msg.value;
            deposits[payee]=deposits[payee]+amount;
        } 
